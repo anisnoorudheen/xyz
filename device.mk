@@ -519,8 +519,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
     $(LOCAL_PATH)/configs/wifi/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf
 
-# Zenfone Parts
+# Zen Parts
 PRODUCT_PACKAGES += \
-    ZenfoneParts
+    ZenParts
 
 $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
