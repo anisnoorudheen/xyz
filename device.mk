@@ -182,7 +182,6 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libvulkan \
     libtinyxml \
-    libgenlock \
     memtrack.sdm660 \
     vendor.display.config@1.3 \
     vendor.display.config@1.3.vendor
@@ -233,7 +232,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.base@1.0_vendor
+    android.hidl.base@1.0_system
 
 # IPv6
 PRODUCT_PACKAGES += \
@@ -357,7 +356,8 @@ PRODUCT_PACKAGES += \
     init.qti.ims.sh \
     move_time_data.sh \
     move_wifi_data.sh \
-    fix_baseband.sh
+    fix_baseband.sh \
+    poop.sh
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
