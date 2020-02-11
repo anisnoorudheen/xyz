@@ -555,13 +555,6 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
     chown media audio /sys/kernel/wcd_cpe0/fw_name
 
-    # Disable I/O stats on both the internal and external drives
-
-    # Internal
-    write /sys/block/mmcblk0/queue/iostats 0
-    # External
-    write /sys/block/mmcblk1/queue/iostats 0
-
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
@@ -1202,12 +1195,6 @@ service vendor.vppservice /vendor/bin/vppservice
     user media
     group camera
     disabled
-
-service time_daemon /vendor/bin/time_daemon
-    class main
-    user system
-    group system
-    capabilities SYS_TIME
 
 # Set vendor-ril lib path based on Meta version
 on property:vendor.rild.libpath=*

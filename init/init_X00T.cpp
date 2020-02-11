@@ -72,38 +72,6 @@ void property_override_triple(char const system_prop[], char const vendor_prop[]
     property_override(bootimg_prop, value);
 }
 
-void dalvik_properties()
-{
-    struct sysinfo sys;
-
-    sysinfo(&sys);
-    if (sys.totalram > 4096ull * 1024 * 1024) {
-        // Set for 6GB or more RAM
-        property_set("dalvik.vm.heapstartsize", "16m");
-        property_set("dalvik.vm.heapgrowthlimit", "256m");
-        property_set("dalvik.vm.heapsize", "512m");
-        property_set("dalvik.vm.heaptargetutilization", "0.5");
-        property_set("dalvik.vm.heapmaxfree", "32m");
-        property_set("dalvik.vm.heapminfree", "8m");
-    } else if (sys.totalram > 3072ull * 1024 * 1024) {
-        // Set for 4GB RAM
-        property_set("dalvik.vm.heapstartsize", "8m");
-        property_set("dalvik.vm.heapgrowthlimit", "192m");
-        property_set("dalvik.vm.heapsize", "512m");
-        property_set("dalvik.vm.heaptargetutilization", "0.6");
-        property_set("dalvik.vm.heapmaxfree", "16m");
-        property_set("dalvik.vm.heapminfree", "8m");
-    } else {
-        // Set for 2/3GB RAM
-        property_set("dalvik.vm.heapstartsize", "8m");
-        property_set("dalvik.vm.heapgrowthlimit", "192m");
-        property_set("dalvik.vm.heapsize", "512m");
-        property_set("dalvik.vm.heaptargetutilization", "0.75");
-        property_set("dalvik.vm.heapmaxfree", "8m");
-        property_set("dalvik.vm.heapminfree", "512k");
-  }
-}
-
 void vendor_check_variant()
 {
     struct sysinfo sys;
@@ -127,12 +95,12 @@ void vendor_check_variant()
     if (sys.totalram > 4096ull * 1024 * 1024) {
         // Russian model
         if (region == "RU") {
-            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200105.002/6031801:user/release-keys";
+            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200205.002/6084386:user/release-keys";
             product_device = "ASUS_X00T_9";
 
         // Global model
         } else {
-            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200105.002/6031801:user/release-keys";
+            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200205.002/6084386:user/release-keys";
             product_device = "ASUS_X00T_3";
         }
 
@@ -140,12 +108,12 @@ void vendor_check_variant()
     } else {
         // Russian model
         if (region == "RU") {
-            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200105.002/6031801:user/release-keys";
+            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200205.002/6084386:user/release-keys";
             product_device = "ASUS_X00T_6";
 
         // Global model
         } else {
-            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200105.002/6031801:user/release-keys";
+            build_fingerprint = "google/crosshatch/crosshatch:10/QQ1A.200205.002/6084386:user/release-keys";
             product_device = "ASUS_X00T_2";
         }
     }
@@ -162,5 +130,4 @@ void vendor_check_variant()
 void vendor_load_properties()
 {
     vendor_check_variant();
-    dalvik_properties();
 }
